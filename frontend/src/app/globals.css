@@ -1,0 +1,204 @@
+@import "tailwindcss";
+
+:root {
+  /* DARK MARINE + OAT + ORANGE DESIGN TOKENS */
+  --bg-marine-950: #060B12; /* Deepest canvas */
+  --bg-marine-900: #0A121D; /* Sidebar, header, modals */
+  --bg-marine-850: #0F1A29; /* Card background */
+  --bg-marine-800: #142235; /* Elevated surface / inputs */
+  --bg-marine-700: #1C2E46; /* Hover / borders active */
+  
+  --border-marine-subtle: #18283E;
+  --border-marine-medium: #223755;
+  --border-marine-bright: #304E78;
+
+  --color-oat-50: #FAF8F5;   /* Crisp Oat text */
+  --color-oat-100: #F3EFE6;  /* Primary headers */
+  --color-oat-200: #E4DDCF;  /* Subheaders & labels */
+  --color-oat-400: #A89F8F;  /* Secondary / captions */
+  --color-oat-600: #6B6355;  /* Disabled / faint lines */
+
+  --color-orange-500: #FF6B2B; /* Brand primary highlight */
+  --color-orange-600: #EA580C; /* Primary CTA button */
+  --color-orange-400: #FF854E; /* Hover state */
+  --color-orange-glow: rgba(255, 107, 43, 0.25);
+
+  --color-emerald-500: #10B981;
+  --color-emerald-glow: rgba(16, 185, 129, 0.2);
+
+  --color-crimson-500: #EF4444;
+}
+
+body {
+  background-color: var(--bg-marine-950);
+  color: var(--color-oat-100);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  letter-spacing: -0.011em;
+}
+
+/* Tabular figures for operational timestamps and identifiers */
+.font-tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-marine-950);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-marine-medium);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-orange-500);
+}
+
+/* Operations Center Panel Styles */
+.panel-marine {
+  background-color: var(--bg-marine-850);
+  border: 1px solid var(--border-marine-subtle);
+  border-radius: 1rem;
+}
+
+.panel-marine-interactive {
+  background-color: var(--bg-marine-850);
+  border: 1px solid var(--border-marine-subtle);
+  border-radius: 1rem;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.panel-marine-interactive:hover {
+  background-color: #121F31;
+  border-color: var(--border-marine-bright);
+  transform: translateY(-1px);
+}
+
+/* Orange Accent Glow */
+.glow-orange {
+  box-shadow: 0 0 25px -4px var(--color-orange-glow);
+}
+
+.glow-emerald {
+  box-shadow: 0 0 20px -3px var(--color-emerald-glow);
+}
+
+/* High-contrast QR Container */
+.qr-container {
+  background: #FAF8F5;
+  border: 4px solid var(--bg-marine-800);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7);
+}
+
+/* Enterprise Form Inputs */
+.input-marine {
+  background-color: var(--bg-marine-850);
+  border: 1px solid var(--border-marine-subtle);
+  color: var(--color-oat-50);
+  border-radius: 0.75rem;
+  padding: 0.625rem 0.875rem;
+  font-size: 0.8125rem;
+  transition: all 0.15s ease-in-out;
+}
+.input-marine:focus {
+  outline: none;
+  border-color: var(--color-orange-500);
+  box-shadow: 0 0 0 1px var(--color-orange-500);
+}
+.input-marine::placeholder {
+  color: var(--color-oat-600);
+}
+
+/* Operations Center Buttons */
+.btn-orange-primary {
+  background-color: var(--color-orange-500);
+  color: #FFFFFF;
+  font-weight: 700;
+  border-radius: 0.75rem;
+  padding: 0.75rem 1.25rem;
+  font-size: 0.8125rem;
+  transition: all 0.15s ease-in-out;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 14px -2px var(--color-orange-glow);
+}
+.btn-orange-primary:hover {
+  background-color: var(--color-orange-600);
+}
+.btn-orange-primary:active {
+  transform: scale(0.98);
+}
+.btn-orange-primary:disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.btn-marine-secondary {
+  background-color: var(--bg-marine-800);
+  border: 1px solid var(--border-marine-medium);
+  color: var(--color-oat-50);
+  font-weight: 600;
+  border-radius: 0.75rem;
+  padding: 0.625rem 1rem;
+  font-size: 0.8125rem;
+  transition: all 0.15s ease-in-out;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn-marine-secondary:hover {
+  background-color: var(--bg-marine-700);
+  border-color: var(--border-marine-bright);
+}
+.btn-marine-secondary:active {
+  transform: scale(0.98);
+}
+
+/* Status Indicators */
+.badge-status-inside {
+  background-color: rgba(16, 185, 129, 0.12);
+  color: #34D399;
+  border: 1px solid rgba(16, 185, 129, 0.28);
+  font-weight: 700;
+  border-radius: 9999px;
+  padding: 0.2rem 0.65rem;
+  font-size: 0.6875rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.badge-status-outside {
+  background-color: rgba(239, 68, 68, 0.12);
+  color: #F87171;
+  border: 1px solid rgba(239, 68, 68, 0.28);
+  font-weight: 700;
+  border-radius: 9999px;
+  padding: 0.2rem 0.65rem;
+  font-size: 0.6875rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.badge-status-pending {
+  background-color: rgba(245, 158, 11, 0.12);
+  color: #FBBF24;
+  border: 1px solid rgba(245, 158, 11, 0.28);
+  font-weight: 700;
+  border-radius: 9999px;
+  padding: 0.2rem 0.65rem;
+  font-size: 0.6875rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
